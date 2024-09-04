@@ -2,6 +2,7 @@ import 'Frontend/demo/init'; // hidden-source-line
 
 import { html, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import '@vaadin/text-field';
 import type { TextField, TextFieldValidatedEvent } from '@vaadin/text-field';
 import { applyTheme } from 'Frontend/generated/theme';
 
