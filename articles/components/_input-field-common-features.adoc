@@ -158,7 +158,7 @@ CONSTRAINT FEATURES
 .Required
 [%collapsible]
 ====
-Required fields are marked with an indicator next to the label, and become invalid if left empty after having been focused. An error message explaining that the field is required needs to be provided manually.
+Required fields are marked with an indicator next to the label, and become invalid if they are cleared.
 
 An instruction text at the top of the form explaining the required indicator is recommended. The indicator itself can be customized with the `--lumo-required-field-indicator` style property.
 ====
