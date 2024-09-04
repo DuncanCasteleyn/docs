@@ -1,4 +1,5 @@
 import { reactExample } from 'Frontend/demo/react-example'; // hidden-source-line
+import React from 'react'; // hidden-source-line
 import { TextField, type TextFieldElement } from '@vaadin/react-components/TextField.js';
 
 function Example() {
