@@ -2,7 +2,7 @@ import { reactExample } from 'Frontend/demo/react-example'; // hidden-source-lin
 import React from 'react'; // hidden-source-line
 import { useComputed, useSignal } from '@vaadin/hilla-react-signals';
 import { useSignals } from '@preact/signals-react/runtime'; // hidden-source-line
-import { DatePicker } from '@vaadin/react-components/DatePicker.js';
+import { DatePicker, type DatePickerElement } from '@vaadin/react-components/DatePicker.js';
 import { formatISO, addDays, isBefore, isAfter, parse } from 'date-fns';
 
 function Example() {
@@ -19,9 +19,15 @@ function Example() {
       min={formatISO(minDate.value, { representation: 'date' })}
       max={formatISO(maxDate.value, { representation: 'date' })}
       errorMessage={errorMessage.value}
-      onChange={({ target }) => {
+      onValidated={(event) => {
+        const target = event.target as DatePickerElement;
         const date = parse(target.value ?? '', 'yyyy-MM-dd', new Date());
-        if (isBefore(date, minDate.value)) {
+        const inputElement = target.inputElement as HTMLInputElement;
+        if (!target.value && inputElement.value) {
+          errorMessage.value = 'Invalid date format';
+        } else if (!target.value) {
+          errorMessage.value = 'Field is required';
+        } else if (isBefore(date, minDate.value)) {
           errorMessage.value = 'Too early, choose another date';
         } else if (isAfter(date, maxDate.value)) {
           errorMessage.value = 'Too late, choose another date';

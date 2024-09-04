@@ -50,12 +50,29 @@ The date can be entered directly using the keyboard in the format of the current
 
 == Validation
 
-To validate a date entered or selected, various ways may be used. For instance, you may want to allow only dates in a certain range, or you might not want to allow certain dates. Below are some of your options for date validation.
+Date Picker provides a built-in validation mechanism based on constraints. Constraints define criteria that the date entered or selected must meet to be considered valid. Validation occurs when the user initiates a date change, for example by selection from the calendar overlay or manual date entry followed by Enter. If the date is invalid, the field is visually highlighted in red, and an error message appears below the input element. It's important to ensure an appropriate error message is configured for each constraint violation to provide users with clear feedback.
 
+Below is a list of supported constraints with more detailed information:
 
-=== Min & Max Value
+[.example]
 
+[#bad-input]
+.Bad Input
+[%collapsible]
+====
+Bad input refers to any input that cannot be parsed into a valid date. When bad input is applied, the field resets the value to empty and becomes invalid. This constraint is enabled by default and cannot be removed.
+====
+
+include::{articles}/components/_input-field-common-features.adoc[tags=required]
+
+[#min-and-max-value]
+.Min & Max Value
+[%collapsible]
+====
 The valid input range of Date Picker can be restricted by defining `min` and `max` values. Dates before the `min` and after the `max` are disabled in the overlay. Helper text can be used to inform the user about the accepted range.
+====
+
+The following example demonstrates how to specify these constraints and provide error messages:
 
 [.example]
 --
@@ -63,21 +80,21 @@ The valid input range of Date Picker can be restricted by defining `min` and `ma
 ifdef::lit[]
 [source,html]
 ----
-include::{root}/frontend/demo/component/datepicker/date-picker-min-max.ts[render,tags=snippet,indent=0,group=Lit]
+include::{root}/frontend/demo/component/datepicker/date-picker-validation.ts[render,tags=snippet,indent=0,group=Lit]
 ----
 endif::[]
 
 ifdef::flow[]
 [source,java]
 ----
-include::{root}/src/main/java/com/vaadin/demo/component/datepicker/DatePickerMinMax.java[render,tags=snippet,indent=0,group=Flow]
+include::{root}/src/main/java/com/vaadin/demo/component/datepicker/DatePickerValidation.java[render,tags=snippet,indent=0,group=Flow]
 ----
 endif::[]
 
 ifdef::react[]
 [source,tsx]
 ----
-include::{root}/frontend/demo/component/datepicker/react/date-picker-min-max.tsx[render,tags=snippet,indent=0,group=React]
+include::{root}/frontend/demo/component/datepicker/react/date-picker-validation.tsx[render,tags=snippet,indent=0,group=React]
 ----
 endif::[]
 --

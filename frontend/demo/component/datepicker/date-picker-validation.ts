@@ -3,12 +3,12 @@ import 'Frontend/demo/init'; // hidden-source-line
 import { html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import '@vaadin/date-picker';
-import type { DatePickerChangeEvent } from '@vaadin/date-picker';
+import type { DatePicker, DatePickerValidatedEvent } from '@vaadin/date-picker';
 import { applyTheme } from 'Frontend/generated/theme';
 import { addDays, formatISO, isAfter, isBefore } from 'date-fns';
 import dateFnsParse from 'date-fns/parse';
 
-@customElement('date-picker-min-max')
+@customElement('date-picker-validation')
 export class Example extends LitElement {
   protected override createRenderRoot() {
     const root = super.createRenderRoot();
@@ -31,13 +31,20 @@ export class Example extends LitElement {
       <!-- tag::snippet[] -->
       <vaadin-date-picker
         label="Appointment date"
+        required
         helper-text="Must be within 60 days from today"
         .min="${formatISO(this.minDate, { representation: 'date' })}"
         .max="${formatISO(this.maxDate, { representation: 'date' })}"
         .errorMessage="${this.errorMessage}"
-        @change="${({ target }: DatePickerChangeEvent) => {
+        @validated="${(event: DatePickerValidatedEvent) => {
+          const target = event.target as DatePicker;
           const date = dateFnsParse(target.value ?? '', 'yyyy-MM-dd', new Date());
-          if (isBefore(date, this.minDate)) {
+          const inputElement = target.inputElement as HTMLInputElement;
+          if (!target.value && inputElement.value) {
+            this.errorMessage = 'Invalid date format';
+          } else if (!target.value) {
+            this.errorMessage = 'Field is required';
+          } else if (isBefore(date, this.minDate)) {
             this.errorMessage = 'Too early, choose another date';
           } else if (isAfter(date, this.maxDate)) {
             this.errorMessage = 'Too late, choose another date';
