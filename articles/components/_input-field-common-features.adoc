@@ -144,7 +144,7 @@ Disabled fields can be useful in situations where they can become enabled based 
 
 
 ////
-CONSTRAINT FEATURES
+VALIDATION FEATURES
 ////
 
 // tag::constraints-intro[]
@@ -198,7 +198,11 @@ It's important to note that programmatically set values are not subject to this 
 ====
 // end::allowed-chars[]
 
-
+// tag::binder[]
+.Data Binding and Validation
+[NOTE]
+Flow and Hilla support advanced APIs for data binding, conversions and additional validation rules. You can learn more from the corresponding <<{articles}/flow/binding-data/components-binder-validation#,Flow>> and <<{articles}/hilla/lit/guides/forms/binder-validation#,Hilla>> articles.
+// end::binder[]
 
 
 ////

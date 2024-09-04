@@ -107,6 +107,7 @@ include::{root}/frontend/demo/component/textfield/react/text-field-validation.ts
 endif::[]
 --
 
+include::{articles}/components/_input-field-common-features.adoc[tags=binder]
 
 // Readonly and disabled
 
