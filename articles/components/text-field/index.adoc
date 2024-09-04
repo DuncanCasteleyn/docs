@@ -73,7 +73,7 @@ endif::[]
 
 == Validation
 
-Text Field provides a built-in validation mechanism based on constraints. Constraints are used to define criteria that the entered input must meet to be considered valid. They are validated when the user applies input, for example by pressing Enter or removing focus from the field. If the input is invalid, the field is visually highlighted in red, and an error message appears below the input element. It's important to ensure an appropriate error message is configured for each constraint violation to provide users with clear feedback.
+Text Field provides a built-in validation mechanism based on constraints. Constraints define criteria that the entered input must meet to be considered valid. They are validated when the user applies input, for example by pressing Enter or removing focus from the field. If the input is invalid, the field is visually highlighted in red, and an error message appears below the input element. It's important to ensure an appropriate error message is configured for each constraint violation to provide users with clear feedback.
 
 Below is a list of supported constraints with more detailed information:
 
