@@ -22,10 +22,10 @@ public class TextFieldValidation extends HorizontalLayout {
         field.setMaxLength(18);
 
         field.setI18n(new TextFieldI18n()
-            .setRequiredErrorMessage("Field is required")
-            .setMinLengthErrorMessage("Minimum length is 5 characters")
-            .setMaxLengthErrorMessage("Maximum length is 18 characters")
-            .setPatternErrorMessage("Invalid phone number format"));
+                .setRequiredErrorMessage("Field is required")
+                .setMinLengthErrorMessage("Minimum length is 5 characters")
+                .setMaxLengthErrorMessage("Maximum length is 18 characters")
+                .setPatternErrorMessage("Invalid phone number format"));
         // end::snippet[]
         field.setHelperText("Format: +(123)456-7890");
 

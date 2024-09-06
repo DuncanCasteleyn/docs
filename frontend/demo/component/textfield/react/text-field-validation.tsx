@@ -1,8 +1,13 @@
 import { reactExample } from 'Frontend/demo/react-example'; // hidden-source-line
 import React from 'react'; // hidden-source-line
 import { TextField, type TextFieldElement } from '@vaadin/react-components/TextField.js';
+import { useSignal } from '@vaadin/hilla-react-signals';
+import { useSignals } from '@preact/signals-react/runtime'; // hidden-source-line
 
 function Example() {
+  useSignals(); // hidden-source-line
+  const errorMessage = useSignal('');
+
   return (
     // tag::snippet[]
     <TextField
@@ -13,19 +18,20 @@ function Example() {
       allowedCharPattern="[0-9()+-]"
       label="Phone number"
       helperText="Format: +(123)456-7890"
+      errorMessage={errorMessage.value}
       onValidated={(event) => {
         const field = event.target as TextFieldElement;
         const value = field.value;
         if (!value) {
-          field.errorMessage = 'Field is required';
+          errorMessage.value = 'Field is required';
         } else if (value.length < field.minlength!) {
-          field.errorMessage = `Minimum length is ${field.minlength} characters`;
+          errorMessage.value = `Minimum length is ${field.minlength} characters`;
         } else if (value.length > field.maxlength!) {
-          field.errorMessage = `Maximum length is ${field.maxlength} characters`;
+          errorMessage.value = `Maximum length is ${field.maxlength} characters`;
         } else if (!new RegExp(field.pattern).test(value)) {
-          field.errorMessage = 'Invalid phone number format';
+          errorMessage.value = 'Invalid phone number format';
         } else {
-          field.errorMessage = '';
+          errorMessage.value = '';
         }
       }}
     />

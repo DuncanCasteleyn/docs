@@ -23,10 +23,10 @@ public class DatePickerValidation extends Div {
         datePicker.setHelperText("Must be within 60 days from today");
 
         datePicker.setI18n(new DatePickerI18n()
-            .setBadInputErrorMessage("Invalid date format")
-            .setRequiredErrorMessage("Field is required")
-            .setMinErrorMessage("Too early, choose another date")
-            .setMaxErrorMessage("Too late, choose another date"));
+                .setBadInputErrorMessage("Invalid date format")
+                .setRequiredErrorMessage("Field is required")
+                .setMinErrorMessage("Too early, choose another date")
+                .setMaxErrorMessage("Too late, choose another date"));
         // end::snippet[]
 
         add(datePicker);

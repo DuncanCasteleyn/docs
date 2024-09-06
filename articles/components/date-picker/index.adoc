@@ -99,6 +99,8 @@ include::{root}/frontend/demo/component/datepicker/react/date-picker-validation.
 endif::[]
 --
 
+include::{articles}/components/_input-field-common-features.adoc[tags=binder]
+
 ifdef::flow,lit[]
 === Custom Validation
 
