@@ -5,7 +5,7 @@ import { customElement } from 'lit/decorators.js';
 import '@vaadin/email-field';
 import { applyTheme } from 'Frontend/generated/theme';
 
-@customElement('email-field-constraints')
+@customElement('email-field-validation')
 export class Example extends LitElement {
   protected override createRenderRoot() {
     const root = super.createRenderRoot();
@@ -18,7 +18,7 @@ export class Example extends LitElement {
     return html`
       <!-- tag::snippet[] -->
       <vaadin-email-field
-        pattern="^.+@example\\.com$"
+        pattern="^[a-zA-Z0-9_\\-+]+(?:\\.[a-zA-Z0-9_\\-+]+)*@example\\.com$"
         required
         label="Email address"
         error-message="Enter a valid example.com email address"

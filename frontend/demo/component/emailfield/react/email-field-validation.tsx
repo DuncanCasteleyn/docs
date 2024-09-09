@@ -6,7 +6,7 @@ function Example() {
   return (
     // tag::snippet[]
     <EmailField
-      pattern="^.+@example\.com$"
+      pattern="^[a-zA-Z0-9_\-+]+(?:\.[a-zA-Z0-9_\-+]+)*@example\.com$"
       required
       label="Email address"
       errorMessage="Enter a valid example.com email address"
