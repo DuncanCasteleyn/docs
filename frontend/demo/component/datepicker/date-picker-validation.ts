@@ -37,12 +37,12 @@ export class Example extends LitElement {
         .max="${formatISO(this.maxDate, { representation: 'date' })}"
         .errorMessage="${this.errorMessage}"
         @validated="${(event: DatePickerValidatedEvent) => {
-          const target = event.target as DatePicker;
-          const date = dateFnsParse(target.value ?? '', 'yyyy-MM-dd', new Date());
-          const inputElement = target.inputElement as HTMLInputElement;
-          if (!target.value && inputElement.value) {
+          const field = event.target as DatePicker;
+          const date = dateFnsParse(field.value ?? '', 'yyyy-MM-dd', new Date());
+          const inputElement = field.inputElement as HTMLInputElement;
+          if (!field.value && inputElement.value) {
             this.errorMessage = 'Invalid date format';
-          } else if (!target.value) {
+          } else if (!field.value) {
             this.errorMessage = 'Field is required';
           } else if (isBefore(date, this.minDate)) {
             this.errorMessage = 'Too early, choose another date';

@@ -20,12 +20,12 @@ function Example() {
       max={formatISO(maxDate.value, { representation: 'date' })}
       errorMessage={errorMessage.value}
       onValidated={(event) => {
-        const target = event.target as DatePickerElement;
-        const date = parse(target.value ?? '', 'yyyy-MM-dd', new Date());
-        const inputElement = target.inputElement as HTMLInputElement;
-        if (!target.value && inputElement.value) {
+        const field = event.target as DatePickerElement;
+        const date = parse(field.value ?? '', 'yyyy-MM-dd', new Date());
+        const inputElement = field.inputElement as HTMLInputElement;
+        if (!field.value && inputElement.value) {
           errorMessage.value = 'Invalid date format';
-        } else if (!target.value) {
+        } else if (!field.value) {
           errorMessage.value = 'Field is required';
         } else if (isBefore(date, minDate.value)) {
           errorMessage.value = 'Too early, choose another date';

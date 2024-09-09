@@ -73,7 +73,7 @@ endif::[]
 
 == Validation
 
-Text Field provides a built-in validation mechanism based on constraints. Constraints define criteria that the value must meet to be considered valid. Their validation occurs when the user initiates a value change, for example by entering input and pressing Enter. If the value is invalid, the field is visually highlighted in red, and an error message appears below the input element. It's important to ensure an appropriate error message is configured for each constraint violation to provide users with clear feedback.
+Text Field provides a validation mechanism based on constraints. Constraints define criteria that the value must meet to be considered valid. Their validation occurs when the user initiates a value change, for example by entering input and pressing Enter. If the value is invalid, the field is visually highlighted in red, and an error message appears below the input element.
 
 Below is a list of supported constraints with more detailed information:
 
@@ -106,6 +106,8 @@ include::{root}/frontend/demo/component/textfield/react/text-field-validation.ts
 ----
 endif::[]
 --
+
+It's important to ensure an appropriate error message is configured for each constraint violation to provide users with clear feedback.
 
 include::{articles}/components/_input-field-common-features.adoc[tags=binder]
 
