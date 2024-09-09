@@ -77,7 +77,7 @@ endif::[]
 
 == Validation
 
-Email Field provides a validation mechanism based on constraints. Constraints define criteria that the value must meet to be considered valid. Their validation occurs when the user initiates a value change, for example by entering input and pressing Enter. If the value is invalid, the field is visually highlighted in red, and an error message appears below the input element.
+Email Field provides a validation mechanism based on constraints. Constraints define criteria that the value must meet to be considered valid. Validation occurs when the user initiates a value change, for example by entering input and pressing Enter. If the value is invalid, the field is visually highlighted in red, and an error message appears below the input element.
 
 Below is a list of supported constraints with more detailed information:
 
