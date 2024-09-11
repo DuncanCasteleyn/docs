@@ -7,14 +7,6 @@ import { Binder, field } from '@vaadin/hilla-lit-form';
 import { applyTheme } from 'Frontend/generated/theme';
 import AppointmentModel from 'Frontend/generated/com/vaadin/demo/domain/AppointmentModel';
 
-Binder.interpolateMessageCallback = (message, validator) => {
-  if (validator.name === 'ValidityStateValidator') {
-    return 'Invalid format';
-  }
-
-  return message;
-};
-
 @customElement('date-picker-custom-validation')
 export class Example extends LitElement {
   protected override createRenderRoot() {

@@ -5,14 +5,6 @@ import { useForm, useFormPart } from '@vaadin/hilla-react-form';
 import AppointmentModel from 'Frontend/generated/com/vaadin/demo/domain/AppointmentModel';
 import { Binder } from '@vaadin/hilla-lit-form';
 
-Binder.interpolateMessageCallback = (message, validator) => {
-  if (validator.name === 'ValidityStateValidator') {
-    return 'Invalid format';
-  }
-
-  return message;
-};
-
 function Example() {
   // tag::snippet[]
   const { model, field } = useForm(AppointmentModel);
