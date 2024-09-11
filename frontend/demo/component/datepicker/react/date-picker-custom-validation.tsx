@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { DatePicker } from '@vaadin/react-components/DatePicker.js';
 import { useForm, useFormPart } from '@vaadin/hilla-react-form';
 import AppointmentModel from 'Frontend/generated/com/vaadin/demo/domain/AppointmentModel';
-import { Binder } from '@vaadin/hilla-lit-form';
 
 function Example() {
   // tag::snippet[]
