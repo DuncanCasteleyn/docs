@@ -101,38 +101,38 @@ endif::[]
 
 It's important to ensure an appropriate error message is configured for each constraint violation to provide users with clear feedback.
 
-include::{articles}/components/_input-field-common-features.adoc[tags=binder]
-
 ifdef::flow,lit[]
-// === Custom Validation
+=== Custom Validation
 
-// Date Picker supports custom validation, such as limiting the options to Monday through Friday. In the following example, select a date that's on a Sunday or a Saturday to see a custom validation message.
+Date Picker supports custom validation, such as limiting the options to Monday through Friday. In the following example, select a date that's on a Sunday or a Saturday to see a custom validation message.
 
-// [.example]
-// --
+[.example]
+--
 
-// ifdef::lit[]
-// [source,typescript]
-// ----
-// include::{root}/frontend/demo/component/datepicker/date-picker-custom-validation.ts[render,tags=snippet,indent=0,group=Lit]
-// ----
-// endif::[]
+ifdef::lit[]
+[source,typescript]
+----
+include::{root}/frontend/demo/component/datepicker/date-picker-custom-validation.ts[render,tags=snippet,indent=0,group=Lit]
+----
+endif::[]
 
-// ifdef::flow[]
-// [source,java]
-// ----
-// include::{root}/src/main/java/com/vaadin/demo/component/datepicker/DatePickerCustomValidation.java[render,tags=snippet,indent=0,group=Flow]
-// ----
-// endif::[]
+ifdef::flow[]
+[source,java]
+----
+include::{root}/src/main/java/com/vaadin/demo/component/datepicker/DatePickerCustomValidation.java[render,tags=snippet,indent=0,group=Flow]
+----
+endif::[]
 
-// ifdef::react[]
-// [source,tsx]
-// ----
-// include::{root}/frontend/demo/component/datepicker/react/date-picker-custom-validation.tsx[render,tags=snippet,indent=0,group=React]
-// ----
-// endif::[]
-// --
-// endif::[]
+ifdef::react[]
+[source,tsx]
+----
+include::{root}/frontend/demo/component/datepicker/react/date-picker-custom-validation.tsx[render,tags=snippet,indent=0,group=React]
+----
+endif::[]
+--
+endif::[]
+
+include::{articles}/components/_input-field-common-features.adoc[tags=binder]
 
 == Week Numbers
 
