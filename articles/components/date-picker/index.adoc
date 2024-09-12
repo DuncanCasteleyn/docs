@@ -50,7 +50,7 @@ The date can be entered directly using the keyboard in the format of the current
 
 == Validation
 
-Date Picker comes with a validation mechanism based on constraints. Constraints define criteria that the date must meet to be considered valid. Validation occurs when the user initiates a date change, for example by selecting a date from the overlay or through text input followed by Enter press. If the date is invalid, the field is visually highlighted in red, and an error message appears underneath the input.
+Date Picker provides a validation mechanism based on constraints. Constraints allow you to define criteria that the date must meet to be considered valid. Validation generally occurs when the user initiates a date change, for example by selecting a date from the overlay or through text input followed by Enter press. If the date is invalid, the field is visually highlighted in red, and an error message appears underneath the input.
 
 Below is a list of supported constraints with more detailed information:
 
@@ -60,7 +60,7 @@ Below is a list of supported constraints with more detailed information:
 .Bad Input
 [%collapsible]
 ====
-Bad input refers to any input that cannot be parsed into a valid date. When bad input is applied, the field resets the value to empty and becomes invalid. This constraint is enabled by default and cannot be removed.
+Bad input refers to any input that cannot be parsed into a valid date. When bad input is applied, the field resets the value to empty and becomes invalid. This constraint is non-configurable and enabled by default.
 ====
 
 include::{articles}/components/_input-field-common-features.adoc[tags=required]
