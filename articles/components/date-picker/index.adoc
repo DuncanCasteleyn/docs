@@ -60,7 +60,7 @@ Below is a list of supported constraints with more detailed information:
 .Bad Input
 [%collapsible]
 ====
-Bad input refers to any input that cannot be parsed into a valid date. When bad input is applied, the field resets the value to empty and becomes invalid. This constraint is non-configurable and enabled by default.
+Bad input refers to any input that cannot be parsed into a valid date. When an unparseble value is entered, the field resets the value to empty and becomes invalid. This constraint is non-configurable and enabled by default.
 ====
 
 include::{articles}/components/_input-field-common-features.adoc[tags=required]
