@@ -1,9 +1,10 @@
 import 'Frontend/demo/init'; // hidden-source-line
 
 import { html, LitElement } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, state } from 'lit/decorators.js';
 import '@vaadin/email-field';
 import { applyTheme } from 'Frontend/generated/theme';
+import type { EmailField, EmailFieldValidatedEvent } from '@vaadin/email-field';
 
 @customElement('email-field-validation')
 export class Example extends LitElement {
@@ -14,15 +15,28 @@ export class Example extends LitElement {
     return root;
   }
 
+  @state()
+  private errorMessage = '';
+
   protected override render() {
     return html`
       <!-- tag::snippet[] -->
       <vaadin-email-field
-        pattern="^.+@example\\.com$"
         required
+        pattern="^[a-zA-Z0-9_\\-+]+(?:\\.[a-zA-Z0-9_\\-+]+)*@example\\.com$"
         label="Email address"
-        error-message="Enter a valid example.com email address"
         helper-text="Only example.com addresses allowed"
+        .errorMessage="${this.errorMessage}"
+        @validated=${(event: EmailFieldValidatedEvent) => {
+          const field = event.target as EmailField;
+          if (!field.value) {
+            this.errorMessage = 'Field is required';
+          } else if (!new RegExp(field.pattern).test(field.value)) {
+            this.errorMessage = 'Enter a valid example.com email address';
+          } else {
+            this.errorMessage = '';
+          }
+        }}
       ></vaadin-email-field>
       <!-- end::snippet[] -->
     `;
