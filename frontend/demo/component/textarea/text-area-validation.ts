@@ -1,9 +1,10 @@
 import 'Frontend/demo/init'; // hidden-source-line
 
 import { html, LitElement } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, state } from 'lit/decorators.js';
 import '@vaadin/text-area';
 import { applyTheme } from 'Frontend/generated/theme';
+import type { TextArea, TextAreaValidatedEvent } from '@vaadin/text-area';
 
 @customElement('text-area-validation')
 export class Example extends LitElement {
@@ -13,6 +14,9 @@ export class Example extends LitElement {
     applyTheme(root);
     return root;
   }
+
+  @state()
+  private errorMessage = '';
 
   protected override render() {
     return html`
@@ -26,6 +30,22 @@ export class Example extends LitElement {
         label="Sentence"
         helper-text="Must be one complete sentence ending in a period, between 5 and 50 characters long"
         style="width:100%"
+        .errorMessage="${this.errorMessage}"
+        @validated="${(event: TextAreaValidatedEvent) => {
+          const field = event.target as TextArea;
+          const value = field.value;
+          if (!value) {
+            field.errorMessage = 'Field is required';
+          } else if (value.length < field.minlength!) {
+            field.errorMessage = `Minimum length is ${field.minlength} characters`;
+          } else if (value.length > field.maxlength!) {
+            field.errorMessage = `Maximum length is ${field.maxlength} characters`;
+          } else if (!new RegExp(field.pattern).test(value)) {
+            field.errorMessage = 'Must be one complete sentence ending in a period';
+          } else {
+            field.errorMessage = '';
+          }
+        }}"
       ></vaadin-text-area>
       <!-- end::snippet[] -->
     `;
