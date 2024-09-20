@@ -47,6 +47,7 @@
     "@rollup/plugin-replace": "5.0.7",
     "@rollup/pluginutils": "5.1.0",
     "@types/iframe-resizer": "^3.5.9",
+    "@types/node": "^22.5.4",
     "@types/react": "18.3.5",
     "@types/react-dom": "18.3.0",
     "@vaadin/hilla-generator-cli": "24.5.0-beta1",
@@ -214,6 +215,6 @@
       "workbox-core": "7.1.0",
       "workbox-precaching": "7.1.0"
     },
-    "hash": "bbd32a1de9be13c8f468c3ae1700221f70ba93d507e7950e66a4448c762e4660"
+    "hash": "33eb72ff7b1f5dfcfc092066fb3379c82f1ad92b2ebc0f3bcc4ae2907726744a"
   }
 }
